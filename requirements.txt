@@ -1,0 +1,6 @@
+google-generativeai 
+PyPDF2 
+scikit-learn 
+numpy
+python-dotenv
+pandas
