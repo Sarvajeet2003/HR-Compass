@@ -8,7 +8,11 @@ import google.generativeai as genai
 class DocumentSearch:
     def __init__(self, vector_db_path="faiss_index"):
         self.vector_db_path = vector_db_path
-        self.embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+        # Specify CPU device explicitly to avoid CUDA/MPS issues
+        self.embeddings = HuggingFaceEmbeddings(
+            model_name="sentence-transformers/all-MiniLM-L6-v2",
+            model_kwargs={"device": "cpu"}
+        )
         self.vector_store = None
         self.qa_chain = None
         self.initialize_llm()
@@ -19,7 +23,7 @@ class DocumentSearch:
         GEMINI_API_KEY = "AIzaSyCEd6f7y1XTUG4P42tEwSdT1_Nf-h76sRs"
         genai.configure(api_key=GEMINI_API_KEY)
         
-        # Create a Gemini model instance
+        # Create a Gemini model instance - using gemini-pro instead of gemini-2.0-flash
         self.llm = ChatGoogleGenerativeAI(
             model="gemini-2.0-flash",
             temperature=0.3,
