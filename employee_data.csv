@@ -1,0 +1,26 @@
+EmployeeID,FirstName,LastName,DateOfBirth,Gender,Nationality,Country,Department,JobTitle,ManagerID,HireDate,TerminationDate,EmploymentStatus,SalaryUSD,LastAppraisalDate,LastAppraisalScore,PriorExperienceYears,OfficeLocation
+EMP001,John,Smith,1985-03-15,Male,American,US,Research,Senior Scientist,EMP005,2015-06-01,,Active,120000,2023-05-15,4,5,New York
+EMP002,Alice,Johnson,1990-07-22,Female,American,US,Sales,Sales Manager,EMP010,2018-01-10,,Active,95000,2023-04-20,5,3,Chicago
+EMP003,Robert,Williams,1978-11-02,Male,American,US,Manufacturing,Plant Manager,EMP010,2010-03-15,2022-12-31,Terminated,150000,2022-03-01,4,10,Boston
+EMP004,Emily,Brown,1992-01-30,Female,American,US,HR,HR Specialist,EMP007,2019-09-01,,Active,75000,2023-08-10,4,2,New York
+EMP005,Michael,Jones,1975-05-12,Male,American,US,Research,Research Director,,2008-07-01,,Active,180000,2023-06-01,5,12,New York
+EMP006,Jessica,Garcia,1988-09-18,Female,American,US,IT,Software Engineer,EMP009,2017-04-03,,Active,110000,2023-03-15,4,4,San Francisco
+EMP007,David,Miller,1980-12-05,Male,American,US,HR,HR Manager,EMP010,2012-11-01,,Active,130000,2023-07-20,5,8,New York
+EMP008,Sarah,Davis,1995-02-20,Female,American,US,Sales,Sales Representative,EMP002,2021-06-15,,Active,65000,2023-05-25,3,1,Chicago
+EMP009,James,Rodriguez,1979-08-25,Male,American,US,IT,IT Director,,2011-02-10,,Active,170000,2023-01-15,5,10,San Francisco
+EMP010,Linda,Wilson,1970-06-10,Female,American,US,Executive,CEO,,2005-01-01,,Active,350000,2023-01-01,5,20,New York
+EMP011,Christopher,Martinez,1983-04-05,Male,American,US,Manufacturing,Production Supervisor,EMP003,2014-07-14,2021-08-15,Terminated,85000,2021-07-01,3,6,Boston
+EMP012,Karen,Anderson,1993-10-12,Female,American,US,Finance,Financial Analyst,EMP015,2020-02-01,,Active,80000,2023-01-20,4,2,New York
+EMP013,Daniel,Thomas,1989-07-07,Male,American,US,Research,Lab Technician,EMP001,2019-11-11,,Active,60000,2023-10-05,4,1,New York
+EMP014,Patricia,Jackson,1986-01-20,Female,American,US,Sales,Account Executive,EMP002,2017-08-01,2023-03-31,Terminated,90000,2023-02-15,4,5,Chicago
+EMP015,Matthew,White,1976-09-03,Male,American,US,Finance,Finance Director,,2009-05-20,,Active,175000,2023-04-10,5,15,New York
+EMP016,Nancy,Harris,1991-03-28,Female,American,US,HR,Recruiter,EMP007,2022-01-10,,Active,70000,2023-12-01,4,1,New York
+EMP017,Mark,Martin,1982-11-15,Male,American,US,Manufacturing,Quality Assurance,EMP003,2013-06-01,,Active,92000,2023-05-01,4,7,Boston
+EMP018,Lisa,Thompson,1996-08-08,Female,American,US,IT,Helpdesk Support,EMP006,2023-03-01,,Active,55000,2023-11-15,3,0,San Francisco
+EMP019,Paul,Garcia,1973-04-22,Male,American,US,Research,Principal Scientist,EMP005,2007-09-17,2020-06-30,Terminated,160000,2020-03-10,5,18,New York
+EMP020,Betty,Clark,1987-12-30,Female,American,US,Finance,Accountant,EMP015,2016-10-03,,Active,88000,2023-09-22,4,4,New York
+EMP021,Kevin,Lewis,1994-05-19,Male,American,US,Sales,Junior Sales Rep,EMP008,2023-07-01,,Active,50000,,,0,Chicago
+EMP022,Donna,Robinson,1984-02-14,Female,American,US,Manufacturing,Logistics Coordinator,EMP017,2018-03-12,,Active,72000,2023-02-20,3,3,Boston
+EMP023,Steven,Walker,1977-10-09,Male,American,US,IT,Network Administrator,EMP009,2012-08-20,2022-05-01,Terminated,105000,2022-04-01,4,9,San Francisco
+EMP024,Sandra,Young,1990-06-25,Female,American,US,Research,Research Assistant,EMP013,2022-04-01,,Active,58000,2023-09-10,4,1,New York
+EMP025,Brian,King,1981-01-01,Male,American,US,Executive,CFO,EMP010,2010-10-10,,Active,300000,2023-01-01,5,15,New York
