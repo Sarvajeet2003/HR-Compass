@@ -11,12 +11,14 @@ PyPDF2>=3.0.0
 # LLM and NLP
 langchain>=0.0.267
 langchain-community>=0.0.1
-transformers>=4.30.0
-torch>=2.0.0
+langchain-google-genai>=0.0.1
+google-generativeai>=0.3.0
 sentence-transformers>=2.2.0
 faiss-cpu>=1.7.4
 
 # Utilities
 argparse
-accelerate
-bitsandbytes
+# transformers - Removed as we're using Gemini API instead
+# torch - Removed as we're using Gemini API instead
+# accelerate - Removed as we're using Gemini API instead
+# optimum - Removed as we're using Gemini API instead

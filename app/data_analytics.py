@@ -1,11 +1,10 @@
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
-from langchain_huggingface import HuggingFacePipeline
-import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline, BitsAndBytesConfig
+from langchain_google_genai import ChatGoogleGenerativeAI
 import re
 from utils.db_manager import DBManager
 from utils.visualization import create_visualization
+import google.generativeai as genai
 
 class DataAnalytics:
     def __init__(self):
@@ -14,36 +13,18 @@ class DataAnalytics:
         self.initialize_llm_chain()
     
     def initialize_llm_chain(self):
-        """Initialize the LLM chain for text-to-SQL conversion"""
-        model_id = "mistralai/Mistral-7B-Instruct-v0.2"
-        tokenizer = AutoTokenizer.from_pretrained(model_id)
-
-        quantization_config = BitsAndBytesConfig(
-            load_in_8bit=False,
-            llm_int8_enable_fp32_cpu_offload=True
-        )
-        bnb_config = BitsAndBytesConfig(
-            load_in_4bit=True,
-            bnb_4bit_quant_type="nf4",  # use nf4, NOT fp4, for CPU compatibility
-            bnb_4bit_compute_dtype=torch.float16,
-            llm_int8_enable_fp32_cpu_offload=True  # this allows offloading to CPU in 32-bit
-        )
-        model = AutoModelForCausalLM.from_pretrained(
-            model_id,
-            torch_dtype=torch.float16,
-            device_map="auto",
-            quantization_config=bnb_config
-        )
+        """Initialize the LLM chain for text-to-SQL conversion using Gemini API"""
+        # Set up the Gemini API key
+        GEMINI_API_KEY = "AIzaSyCEd6f7y1XTUG4P42tEwSdT1_Nf-h76sRs"
+        genai.configure(api_key=GEMINI_API_KEY)
         
-        pipe = pipeline(
-            "text-generation",
-            model=model,
-            tokenizer=tokenizer,
-            max_new_tokens=512,
-            temperature=0.1
+        # Create a Gemini model instance
+        llm = ChatGoogleGenerativeAI(
+            model="gemini-2.0-flash",
+            temperature=0.1,
+            max_output_tokens=256,
+            google_api_key=GEMINI_API_KEY
         )
-        
-        llm = HuggingFacePipeline(pipeline=pipe)
         
         # Create prompt template for SQL generation
         schema_info = self.db_manager.get_schema_info()
@@ -78,15 +59,11 @@ class DataAnalytics:
         return schema_str
     
     def _extract_sql_query(self, text):
-        """Extract SQL query from LLM output"""
-        # Clean up the output to get just the SQL query
-        query = text.strip()
-        if "```sql" in query:
-            query = re.search(r"```sql\n(.*?)```", query, re.DOTALL).group(1)
-        elif "```" in query:
-            query = re.search(r"```\n(.*?)```", query, re.DOTALL).group(1)
-        return query.strip()
-    
+        """Extract and clean SQL query from LLM output"""
+        # Remove all code block markdown
+        query = re.sub(r"```(?:sqlite|sql)?", "", text).strip("` \n")
+        return query
+
     def natural_language_to_sql(self, question):
         """Convert natural language question to SQL query"""
         schema_info = self.db_manager.get_schema_info()
