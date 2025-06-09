@@ -24,8 +24,6 @@ class DocumentSearch:
         self.qa_chain = None
         self.initialize_llm()
     
-    # ... existing code ...
-    
     def answer_question(self, question):
         """Answer question using RAG"""
         if not self.qa_chain:
