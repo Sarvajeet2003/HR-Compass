@@ -56,7 +56,6 @@ def initialize_llm_chain(self):
         llm_int8_enable_fp32_cpu_offload=True  # this allows offloading to CPU in 32-bit
     )
     
-    # ... existing code ...
 ```
 
 ### 3. Visualization Engine
@@ -87,7 +86,6 @@ def create_visualization(df, question):
         if len(df.columns) >= 2:
             sns.barplot(x=df.columns[0], y=df.columns[1], data=df)
     
-    # ... existing code ...
 ```
 
 ### 4. Database Management
